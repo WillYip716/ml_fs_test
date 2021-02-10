@@ -2,7 +2,7 @@ import flask
 import pickle
 import pandas as pd
 
-with open(f'model/bike_model_xgboost.pkl', 'rb') as f:
+with open(f'model/score_predictor.pkl', 'rb') as f:
     model = pickle.load(f)
 
 # Initialise the Flask app
@@ -68,8 +68,7 @@ def main():
 
         columnheads = ['temp','wind_mph','vdflg','hdflg','divgame','nsite','hospread','ouopen','hcspread','ouclose','vTOTAL.DVOA','vTOTAL.RNK','vOFF.RNK','vOFF.DVOA','vDEF.RNK','vDEF.DVOA','vST.RNK','vST.DVOA','hTOTAL.DVOA','hTOTAL.RNK','hOFF.RNK','hOFF.DVOA','hDEF.RNK','hDEF.DVOA','hST.RNK','hST.DVOA','vtsw','vtsl','vtst','htsw','htsl','htst','vtw','vtl','vtt','vts','htw','htl','htt','hts']
 
-        input_variables = pd.DataFrame(inputVals, columnheads,dtype=float,
-                                       index=['input'])
+        input_variables = pd.DataFrame(inputVals, columns = columnheads,dtype=float)
 
         # Get the model's prediction
         prediction = model.predict(input_variables)[0]

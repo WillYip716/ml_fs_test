@@ -1,7 +1,155 @@
+
 <!doctype html>
 <html>
-    <head>
-        <title>Web app name</title>
-    </head>
-    <h1>Hello world.</h1>
+<style>
+form {
+    margin: auto;
+    width: 35%;
+}
+
+.result {
+    margin: auto;
+    width: 35%;
+    border: 1px solid #ccc;
+}
+</style>
+
+<head>
+    <title>Spread win predictor</title>
+</head>
+<form action="{{ url_for('main') }}" method="POST">
+    <fieldset>
+        <legend>Input values:</legend>
+        temp:
+        <input name="temp" type="number" required>
+        <br>
+        <br> wind mph:
+        <input name="wind_mph" type="number" required>
+        <br>
+        <br> visitor days from last game:
+        <input name="vdflg" type="number" required>
+        <br>
+        home days from last game:
+        <input name="hdflg" type="number" required>
+        <br>
+        <br> division game:
+        <input name="divgame" type="number" required>
+        <br>
+        <br> neutral site:
+        <input name="nsite" type="number" required>
+        <br>
+        home open spread:
+        <input name="hospread" type="number" step="any" required>
+        <br>
+        <br> over under open:
+        <input name="ouopen" type="number" step="any" required>
+        <br>
+        <br> home closing spread:
+        <input name="hcspread" type="number" step="any" required>
+        <br>
+        over under close:
+        <input name="ouclose" type="number" step="any" required>
+        <br>
+        <br> visitor total dvoa:
+        <input name="vTOTAL.DVOA" type="number" step="any" required>
+        <br>
+        <br> visitor total rank:
+        <input name="vTOTAL.RNK" type="number"  required>
+        <br>
+        visitor off rank:
+        <input name="vOFF.RNK" type="number" required>
+        <br>
+        <br> visitor off dvoa:
+        <input name="vOFF.DVOA" type="number" step="any" required>
+        <br>
+        <br> visitor def rank:
+        <input name="vDEF.RNK" type="number" required>
+        <br>
+        visitor def dvoa:
+        <input name="vDEF.DVOA" type="number" step="any" required>
+        <br>
+        <br> visitor st rank:
+        <input name="vST.RNK" type="number" required>
+        <br>
+        <br> visitor st dvoa:
+        <input name="vST.DVOA" type="number" step="any" required>
+        <br>
+        home total dvoa:
+        <input name="hTOTAL.DVOA" type="number" step="any" required>
+        <br>
+        <br> home total rank:
+        <input name="hTOTAL.RNK" type="number" required>
+        <br>
+        <br> home off rank:
+        <input name="hOFF.RNK" type="number" required>
+        <br>
+        home off dvoa:
+        <input name="hOFF.DVOA" type="number" step="any" required>
+        <br>
+        <br> home def rank:
+        <input name="hDEF.RNK" type="number" required>
+        <br>
+        <br> home def dvoa:
+        <input name="hDEF.DVOA" type="number" step="any" required>
+        <br>
+        home st rank:
+        <input name="hST.RNK" type="number" required>
+        <br>
+        <br> home st dvoa:
+        <input name="hST.DVOA" type="number" step="any" required>
+        <br>
+        <br> visitor spread wins:
+        <input name="vtsw" type="number" required>
+        <br>
+        visitor spread losses:
+        <input name="vtsl" type="number" required>
+        <br>
+        <br> visitor spread ties:
+        <input name="vtst" type="number" required>
+        <br>
+        <br> home spread wins:
+        <input name="htsw" type="number" required>
+        <br>
+        home spread losses:
+        <input name="htsl" type="number" required>
+        <br>
+        <br> home spread ties:
+        <input name="htst" type="number" required>
+        <br>
+        <br> visitor team wins:
+        <input name="vtw" type="number" required>
+        <br>
+        visitor team losses:
+        <input name="vtl" type="number" required>
+        <br>
+        <br> visitor team ties:
+        <input name="vtt" type="number" required>
+        <br>
+        <br> visitor team streak:
+        <input name="vts" type="number" required>
+        <br>
+        <br> home team wins:
+        <input name="htw" type="number" required>
+        <br>
+        <br> home team losses:
+        <input name="htl" type="number" required>
+        <br>
+        <br> home team ties:
+        <input name="htt" type="number" required>
+        <br>
+        <br> home team streak:
+        <input name="hts" type="number" required>
+        <br>
+        <input type="submit">
+    </fieldset>
+</form>
+<br>
+<div class="result" align="center">
+    {% if result %}
+		<br>
+    	<br> Predicted results:
+   		<p style="font-size:50px">{{ result }}</p>
+    {% endif %}
+</div>
+
 </html>
