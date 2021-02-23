@@ -1,0 +1,29 @@
+
+<!doctype html>
+<html>
+<style>
+form {
+    margin: auto;
+    width: 35%;
+}
+
+.result {
+    margin: auto;
+    width: 35%;
+    border: 1px solid #ccc;
+}
+</style>
+
+<head>
+    <title>Spread win predictor</title>
+</head>
+
+<div class="result" align="center">
+    {% if result %}
+		<br>
+    	<br> Predicted results:
+   		<p style="font-size:50px">{{ result }}</p>
+    {% endif %}
+</div>
+
+</html>
